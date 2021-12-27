@@ -1,18 +1,14 @@
 import requests
-from requests_html import HTMLSession
 from bs4 import BeautifulSoup
-from main import House
-import time
+from houses import House
+from requests_html import HTMLSession
 
-headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36'}
 url = "https://www.places4students.com/Places/PropertyListings?SchoolID=j9CaTYeszhs="
-session = HTMLSession()
-resp = session.get(url)
-resp.html.render()
-html = resp.html.html
+s = HTMLSession()
+response = s.get(url)
+response.html.render(wait=2, sleep=3)
 
-soup = BeautifulSoup(html, 'html.parser')
+soup = BeautifulSoup(response.html, 'html.parser')
 print(soup)
 
 

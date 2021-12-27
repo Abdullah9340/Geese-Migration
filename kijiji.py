@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from main import House
+from houses import House
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36'}
@@ -32,15 +32,9 @@ def get_kijiji_listings():
                     link.find('span', {'class': 'intersection'}).get_text()).strip().replace("    ", "")
             else:
                 posting_location = ""
-
             houses.append(House(posting_name, posting_price,
-                          posting_desc, posting_beds, posting_location, posting_link, "image"))
+                          posting_desc, posting_beds, posting_location, posting_link, ""))
     return houses
 
 
 houses = get_kijiji_listings()
-
-for a in houses:
-    print("--------------------------------------------")
-    print(a)
-    print("--------------------------------------------")
