@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask_restful import Resource, Api
 from flask_cors import CORS
 from kijiji import get_kijiji_listings
+from houses import House
 import json
 import mysql.connector
 
@@ -28,8 +29,13 @@ class homePage(Resource):
     def get(self):
         houses = get_kijiji_listings()
         mycursor.execute("SELECT * FROM housedb")
+        print(type(houses[0]))
         for house in mycursor:
-            print(house)
+            for x in house:
+                print(x)
+            #houses.append(House(" ", " ", " ", " ", " ", " ", " "))
+            houses.append(House(
+                str(house[1]), str(houses[2]), str(houses[4]), "0", str(houses[3]), str(houses[5]), str(houses[6])))
         return json.dumps([ob.__dict__ for ob in houses])
 
 
