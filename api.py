@@ -34,15 +34,20 @@ class homePage(Resource):
 
 
 class addHouse(Resource):
+    def get(self):
+        return {'info': 'ok'}
+
     def put(self):
         info = request.get_json()
-        mycursor.execute("INSERT INTO housedb (listing_name, price, location, description, contanct, image)" +
-                         f"VALUES ({info['listing_name'],info['price'],info['location'],info['descripion'],info['contact'],info['image']})")
+        mycursor.reset()
+        mycursor.execute(
+            "INSERT INTO housedb (listing_name, price, location, description, contact, image) VALUES (%s,%s,%s,%s,%s,%s)", (info['listing_name'], info['price'], info['location'], info['description'], info['contact'], info['image'],))
         db.commit()
         return {'info': 'ITEM ADDED'}
 
 
 api.add_resource(homePage, '/')
-api.add_resource(addHouse, '/addItem')
+api.add_resource(addHouse, '/add')
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
