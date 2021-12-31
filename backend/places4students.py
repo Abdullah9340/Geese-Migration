@@ -46,8 +46,3 @@ def get_p4s_listings():
 
 
 houses = get_p4s_listings()
-print(houses)
-for a in houses:
-    print("--------------------------------------------")
-    print(a)
-    print("--------------------------------------------")

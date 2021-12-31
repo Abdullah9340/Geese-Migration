@@ -29,13 +29,12 @@ class homePage(Resource):
     def get(self):
         houses = get_kijiji_listings()
         mycursor.execute("SELECT * FROM housedb")
-        print(type(houses[0]))
         for house in mycursor:
             for x in house:
                 print(x)
-            #houses.append(House(" ", " ", " ", " ", " ", " ", " "))
-            houses.append(House(
-                str(house[1]), str(houses[2]), str(houses[4]), "0", str(houses[3]), str(houses[5]), str(houses[6])))
+            h = House(str(house[1]), str(house[2]), str(house[4]), "0", str(
+                house[3]), str(house[5]), str(house[6]), house[0])
+            houses.append(h)
         return json.dumps([ob.__dict__ for ob in houses])
 
 
