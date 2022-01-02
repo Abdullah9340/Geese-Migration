@@ -40,7 +40,7 @@ class homePage(Resource):
 
 class addHouse(Resource):
     def get(self):
-        return {'info': 'ok'}
+        return {'info': 'Hello World'}
 
     def put(self):
         info = request.get_json()
@@ -51,8 +51,20 @@ class addHouse(Resource):
         return {'info': 'ITEM ADDED'}
 
 
+class deleteListing(Resource):
+    def get(self):
+        return {'info': 'Hello World'}
+
+    def delete(self):
+        info = request.get_json()
+        mycursor.reset()
+        mycursor.execute(f"DELETE FROM housedb WHERE id = {info['id']}")
+        return {"info": "Item deleted"}
+
+
 api.add_resource(homePage, '/')
 api.add_resource(addHouse, '/add')
+api.add_resource(deleteListing, '/delete')
 
 if __name__ == '__main__':
     app.run(debug=True)

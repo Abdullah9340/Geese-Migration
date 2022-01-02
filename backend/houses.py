@@ -1,5 +1,3 @@
-
-
 class House:
     def __init__(self, listing_name, price, desc, beds, location, link, image, id=-1):
         self.listing_name = listing_name
