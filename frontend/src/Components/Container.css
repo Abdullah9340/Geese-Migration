@@ -1,0 +1,6 @@
+.Container {
+  width: 100%; /* Magic here */
+  height: 100%;
+  background-color: white;
+  margin: 0;
+}

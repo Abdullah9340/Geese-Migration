@@ -27,7 +27,7 @@ CORS(app)
 
 class homePage(Resource):
     def get(self):
-        houses = get_kijiji_listings()
+        houses = []
         mycursor.execute("SELECT * FROM housedb")
         for house in mycursor:
             for x in house:
@@ -35,6 +35,7 @@ class homePage(Resource):
             h = House(str(house[1]), str(house[2]), str(house[4]), "0", str(
                 house[3]), str(house[5]), str(house[6]), house[0])
             houses.append(h)
+        houses.extend(get_kijiji_listings())
         return json.dumps([ob.__dict__ for ob in houses])
 
 
@@ -44,11 +45,14 @@ class addHouse(Resource):
 
     def put(self):
         info = request.get_json()
-        mycursor.reset()
-        mycursor.execute(
-            "INSERT INTO housedb (listing_name, price, location, description, contact, image) VALUES (%s,%s,%s,%s,%s,%s)", (info['listing_name'], info['price'], info['location'], info['description'], info['contact'], info['image'],))
-        db.commit()
-        return {'info': 'ITEM ADDED'}
+        try:
+            mycursor.reset()
+            mycursor.execute(
+                "INSERT INTO housedb (listing_name, price, location, description, contact, image) VALUES (%s,%s,%s,%s,%s,%s)", (info['listing_name'], info['price'], info['location'], info['description'], info['contact'], info['image'],))
+            db.commit()
+            return {'info': 'ITEM ADDED'}
+        except Exception:
+            return {'info': 'Error'}
 
 
 class deleteListing(Resource):
@@ -57,9 +61,13 @@ class deleteListing(Resource):
 
     def delete(self):
         info = request.get_json()
-        mycursor.reset()
-        mycursor.execute(f"DELETE FROM housedb WHERE id = {info['id']}")
-        return {"info": "Item deleted"}
+        try:
+            mycursor.reset()
+            mycursor.execute(f"DELETE FROM housedb WHERE id = {info['id']}")
+            db.commit()
+            return {"info": "Item deleted"}
+        except Exception:
+            return {"info": "Item not Found"}
 
 
 api.add_resource(homePage, '/')

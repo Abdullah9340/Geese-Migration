@@ -1,10 +1,7 @@
 import "./App.css";
-
+import Container from "./Components/Container.js";
 function App() {
-  return (
-  <div className="App">
-    <p>Geese Migration</p>
-  </div>);
+  return <Container />;
 }
 
 export default App;
