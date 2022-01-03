@@ -1,0 +1,59 @@
+.CardHeader {
+  size: 20px;
+  font-weight: 800;
+  font-family: "Barlow", sans-serif;
+}
+
+.StandardText1 {
+  size: 12px;
+  font-weight: 500;
+  font-family: "Barlow", sans-serif;
+}
+
+.StandardText2 {
+  size: 12px;
+  font-family: "Barlow", sans-serif;
+}
+
+.gooseimage {
+  border-radius: 10%;
+  margin: 1%;
+  margin-left: 5px;
+  height: 85px;
+  float: left;
+}
+
+.header-title {
+  float: left;
+  text-align: center;
+
+  font-family: Barlow;
+  font-weight: 800;
+  color: #091747;
+  font-size: 50px;
+}
+
+.nav {
+  height: 10%;
+}
+
+.header-button {
+  color: white;
+  font-family: Barlow;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 14px;
+  float: right;
+  margin: 45px 30px;
+  margin-right: 20px;
+  background-color: #03b4c6;
+  border: none;
+  border-radius: 5px 5px 5px 5px;
+  box-sizing: border-box;
+  height: 50px;
+  width: 240px;
+}
+
+.header-button:hover {
+  background-color: #009eb0;
+}

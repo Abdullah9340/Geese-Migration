@@ -1,14 +1,13 @@
 .Card {
-  width: 70%;
-  height: 12rem;
+  width: 90%;
+  height: 11rem;
   display: flex;
   flex: 1;
   margin: 60px auto;
-  margin-top: 0px;
   align-self: center;
   align-items: center;
   justify-content: center;
-  background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: rgb(78, 78, 78) 5px 5px 5px;
+  background-color: #f5f5f5;
+  border-radius: 16px;
+  box-shadow: #878585 4px 4px 4px 1px;
 }
