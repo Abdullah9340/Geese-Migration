@@ -1,0 +1,23 @@
+.header-button {
+  color: white;
+  font-family: Barlow;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 14px;
+  float: right;
+  margin: 45px 30px;
+  margin-right: 20px;
+  background-color: #03b4c6;
+  border: none;
+  border-radius: 5px 5px 5px 5px;
+  box-sizing: border-box;
+  height: 50px;
+  width: 240px;
+}
+
+.header-button:hover {
+  background-color: #009eb0;
+}
+.header-button-container {
+  float: right;
+}

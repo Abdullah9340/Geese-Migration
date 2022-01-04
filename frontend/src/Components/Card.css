@@ -1,8 +1,14 @@
 .Card {
   width: 90%;
   height: 11rem;
-  display: flex;
-  flex: 1;
+  font-family: Barlow;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4;
+  display: grid;
+  grid-row-gap: 0;
+  grid-column-gap: 0;
+  grid-template-columns: 30% 50% 20%;
   margin: 60px auto;
   align-self: center;
   align-items: center;
@@ -10,4 +16,25 @@
   background-color: #f5f5f5;
   border-radius: 16px;
   box-shadow: #878585 4px 4px 4px 1px;
+}
+
+.listing_name {
+  position: relative;
+  bottom: 10px;
+  left: 30px;
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+}
+
+.price {
+  position: relative;
+  left: 30px;
+  font-size: 18px;
+}
+
+.contact_info {
+  position: relative;
+  left: 30px;
+  font-size: 18px;
 }

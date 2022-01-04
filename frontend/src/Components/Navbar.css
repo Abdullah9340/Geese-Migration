@@ -26,7 +26,6 @@
 .header-title {
   float: left;
   text-align: center;
-
   font-family: Barlow;
   font-weight: 800;
   color: #091747;
@@ -37,7 +36,7 @@
   height: 10%;
 }
 
-.header-button {
+.header-button1 {
   color: white;
   font-family: Barlow;
   letter-spacing: 2px;
