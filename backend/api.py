@@ -30,8 +30,6 @@ class homePage(Resource):
         houses = []
         mycursor.execute("SELECT * FROM housedb")
         for house in mycursor:
-            for x in house:
-                print(x)
             h = House(str(house[1]), str(house[2]), str(house[4]), "0", str(
                 house[3]), str(house[5]), str(house[6]), house[0])
             houses.append(h)
@@ -43,13 +41,14 @@ class addHouse(Resource):
     def get(self):
         return {'info': 'Hello World'}
 
-    def put(self):
+    def post(self):
         info = request.get_json()
         try:
             mycursor.reset()
             mycursor.execute(
                 "INSERT INTO housedb (listing_name, price, location, description, contact, image) VALUES (%s,%s,%s,%s,%s,%s)", (info['listing_name'], info['price'], info['location'], info['description'], info['contact'], info['image'],))
             db.commit()
+            print("here")
             return {'info': 'ITEM ADDED'}
         except Exception:
             return {'info': 'Error'}
@@ -59,7 +58,7 @@ class deleteListing(Resource):
     def get(self):
         return {'info': 'Hello World'}
 
-    def delete(self):
+    def post(self):
         info = request.get_json()
         try:
             mycursor.reset()
