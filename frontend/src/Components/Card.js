@@ -4,12 +4,17 @@ function Card(props) {
   return (
     <div className="Card">
       <div>
-        <p className ="listing_name">{props.name}Lorem ipsum dolor sit amet</p>
-        <p className ="price">Price: {props.price}</p>
-        <p className ="contact_info">Contact: {props.contact}</p>
+        <p className="listing_name">{props.house.listing_name}</p>
+        <p className="price">Price (CAD): {props.house.price}</p>
+        <p className="contact_info">
+          {props.house.id === -1 && <a href={props.house.link}>Contact</a>}
+          {props.house.id !== -1 && <p>Contact: {props.house.link}</p>}
+        </p>
       </div>
-      <p>{props.desc}Description: Lorem ipsum dolor sit amet. Qui aperiam saepe qui natus voluptas et sunt dolorem ea aspernatur consequatur sed quia ducimus aut exercitationem omnis. Eum reiciendis aliquam sit blanditiis libero est quos dicta quo enim nesciunt ab saepe nihil. Et assumenda quos qui maxime alias cum incidunt quod alias repellat.</p>
-      <DeleteButton />
+      <p>{props.house.desc}</p>
+      {props.house.id !== -1 && (
+        <DeleteButton deleteListing={props.delete_list} id={props.house.id} />
+      )}
     </div>
   );
 }

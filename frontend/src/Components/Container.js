@@ -1,13 +1,12 @@
 import "./Container.css";
 import Card from "./Card.js";
-function Container() {
+function Container(props) {
+  let houses = props.houses;
   return (
     <div className="Container">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {houses.map((house) => (
+        <Card house={house} delete_list={props.delete_list} />
+      ))}
     </div>
   );
 }

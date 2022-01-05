@@ -26,17 +26,18 @@
 .header-title {
   float: left;
   text-align: center;
+  margin-top: 20px;
   font-family: Barlow;
   font-weight: 800;
   color: #091747;
   font-size: 50px;
 }
 
-.nav {
+.nav1 {
   height: 10%;
 }
 
-.header-button1 {
+.headerbutton1 {
   color: white;
   font-family: Barlow;
   letter-spacing: 2px;
