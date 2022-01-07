@@ -8,7 +8,6 @@ url = "https://www.kijiji.ca/b-real-estate/kitchener-waterloo/student-housing/k0
 page = requests.get(url, headers=headers)
 soup = BeautifulSoup(page.content, "html.parser")
 
-
 def get_kijiji_listings():
     houses = []
     for link in soup.find_all('div', {'class': 'clearfix'}):
@@ -35,6 +34,5 @@ def get_kijiji_listings():
             houses.append(House(posting_name, posting_price,
                           posting_desc, posting_beds, posting_location, posting_link, ""))
     return houses
-
 
 houses = get_kijiji_listings()
