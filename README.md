@@ -1,4 +1,4 @@
-<h3>A student housing website that web-scrapes listings off a variety of other websites. These listings are then stored into a locally hosted MySQL database to be used on our front-end. Currently working on adding images to each listing, and creating additional web-scrappers for other websites.</h3>
+<h3>A student housing website that web-scrapes listings off a variety of other websites. These listings are then stored into an online hosted PostgreSQL database to be used on our front-end. Currently working on adding images to each listing, and creating additional web-scrappers for other websites.</h3>
 
 <h4>Webiste Hosted at https://geese-migration.netlify.app/</h4>
 - Note that the website may take a while to load listings due to our API being slow as it is hosted on a free service
